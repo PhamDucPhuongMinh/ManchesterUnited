@@ -1,0 +1,27 @@
+CREATE TABLE Role (
+    Id VARCHAR(10) NOT NULL,
+    Title VARCHAR(20) NOT NULL,
+    PRIMARY KEY (Id)
+)
+
+CREATE TABLE Department (
+    Id INT NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Manager INT NOT NULL,
+    PRIMARY KEY (Id),
+    FOREIGN KEY (Manager) REFERENCES User(Id)
+)
+
+CREATE TABLE User (
+    Id INT NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Phone VARCHAR(255) NOT NULL,
+    Role VARCHAR(10) NOT NULL,
+    Department INT NOT NULL,
+    PRIMARY KEY (Id),
+    FOREIGN KEY (Role) REFERENCES Role(Id),
+    FOREIGN KEY (Department) REFERENCES Department(Id)
+);
+

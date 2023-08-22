@@ -1,0 +1,43 @@
+.menu {
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+  &__item {
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      background: #fff;
+      height: 4px;
+      width: 0%;
+      transition: all 0.2s linear;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &:hover {
+      &::before,
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    &__item {
+      width: 100%;
+      &:not(:last-child) {
+        border-bottom: 1px solid #ddd;
+      }
+      a {
+        color: #333 !important;
+        padding: 20px 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+$header-height: 70px;
+
+.header {
+  height: $header-height;
+  background: #c70101;
+  &__logo {
+    img {
+      height: 50px;
+    }
+  }
+  &__menu {
+    height: 100%;
+  }
+  &__toggle-menu {
+    padding-left: $header-height;
+    position: relative;
+    &__button {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      div {
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 5px;
+        position: absolute;
+        left: 0;
+        transition: all 0.2s linear;
+        &:first-child {
+          top: 0;
+          transform-origin: left;
+        }
+        &:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &:last-child {
+          bottom: 0;
+          transform-origin: left;
+        }
+      }
+      &.open {
+        div {
+          &:first-child {
+            width: 26px;
+            transform: rotate(45deg);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:last-child {
+            width: 26px;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &__menu {
+      max-height: 0%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: translateY(100%);
+      width: 100%;
+      box-shadow: 0 10px 50px rgb(0 0 0 / 9%);
+      height: fit-content;
+      background: #fff;
+      overflow: hidden;
+      transition: all 0.2s linear;
+      &.open {
+        max-height: 200px;
+      }
+    }
+  }
+}

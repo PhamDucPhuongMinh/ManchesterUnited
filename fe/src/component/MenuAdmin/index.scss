@@ -1,0 +1,24 @@
+.menu-admin {
+  width: 250px;
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+  &__item {
+    a {
+      transition: all 0.1s linear;
+      border-radius: 8px;
+      img {
+        transition: all 0.1s linear;
+      }
+      &:hover {
+        background: #f1f1f2;
+        color: #c70101 !important;
+        img {
+          filter: invert(8%) sepia(96%) saturate(6093%) hue-rotate(1deg)
+            brightness(101%) contrast(108%);
+        }
+      }
+    }
+  }
+}
