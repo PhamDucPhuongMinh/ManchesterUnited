@@ -1,0 +1,46 @@
+.btn-go-to-top {
+  .ant-float-btn-body {
+    background: #c70101 !important;
+  }
+}
+
+.pe-pointer {
+  cursor: pointer !important;
+}
+
+.text-overflow-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.text-overflow-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hidden-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+// Radio Ant Design
+.ant-radio-checked .ant-radio-inner {
+  border-color: #c70101 !important ;
+  background-color: #c70101 !important;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: #c70101 !important;
+}

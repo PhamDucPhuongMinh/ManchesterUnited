@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "../component/Login";
+import Login from "../component/commons/Login";
 import { tokenLocalStorage } from "../utils";
 import { Navigate } from "react-router-dom";
 

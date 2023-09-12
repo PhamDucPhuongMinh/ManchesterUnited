@@ -1,18 +1,11 @@
-import apiUrl from "..";
+import axiosInstance from "..";
 
-const checkAdminAPI = async (token: string) => {
-  try {
-    const api = await fetch(`${apiUrl}/check-admin`, {
-      method: "POST",
-      headers: {
-        MU_Token: token,
-      },
-    });
-    return api.json();
-  } catch (error) {
-    console.log(error);
-    return { result: false };
-  }
+const checkAdminAPI = (token: string) => {
+  return axiosInstance.post("/check-admin", null, {
+    headers: {
+      MU_Token: token,
+    },
+  });
 };
 
 export default checkAdminAPI;

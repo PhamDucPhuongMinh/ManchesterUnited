@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./index.scss";
-import Menu from "../Menu";
+import Menu from "../../user/Menu";
 import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {

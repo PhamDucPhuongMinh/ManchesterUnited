@@ -1,9 +1,11 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import { loginAPI } from "../../services";
-import { tokenLocalStorage } from "../../utils";
+import { loginAPI } from "../../../services";
+import { tokenLocalStorage } from "../../../utils";
 import { handleShowMessage } from "../Message";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLoading } from "../../../redux/slices/loadingSlice";
 
 interface FormValues {
   username: string;
@@ -12,18 +14,27 @@ interface FormValues {
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (values: FormValues) => {
-    const resultLoginApi = await loginAPI(values);
-    if (resultLoginApi.result) {
-      localStorage.setItem(tokenLocalStorage, resultLoginApi.data.token);
-      handleShowMessage(
-        "success",
-        resultLoginApi.msg || "Đăng nhập thành công."
-      );
-      navigate("/dashboard");
-    } else {
-      handleShowMessage("error", resultLoginApi.msg || "Đăng nhập thất bại.");
+    try {
+      dispatch(setLoading(true));
+      const resultLoginApi = await loginAPI(values);
+      if (resultLoginApi.data.result) {
+        localStorage.setItem(tokenLocalStorage, resultLoginApi.data.data.token);
+        handleShowMessage(
+          "success",
+          resultLoginApi.data.msg || "Logged in successfully."
+        );
+        navigate("/dashboard");
+      } else {
+        handleShowMessage("error", resultLoginApi.data.msg || "Login failed.");
+      }
+    } catch (error) {
+      console.log(error);
+      handleShowMessage("error", "Login failed. Please try again.");
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 

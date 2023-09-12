@@ -7,7 +7,9 @@ import HomeTemplate from "../templates/HomeTemplate";
 import LoginPage from "../pages/LoginPage";
 import PrivateRoute from "./PrivateRoute";
 import AdminTemplate from "../templates/AdminTemplate";
-import DashboardPage from "../pages/DashboardPage";
+import DashboardPage from "../pages/admin/DashboardPage";
+import PlayerAdminPage from "../pages/admin/PlayerAdminPage";
+import TrophiesAdminPage from "../pages/admin/TrophiesAdminPage";
 
 const MyRoutes: React.FC = () => {
   return (
@@ -24,10 +26,26 @@ const MyRoutes: React.FC = () => {
           element={<HomeTemplate component={PlayerPage} />}
         />
         <Route
-          path="/dashboard/:route?"
+          path="/dashboard"
           element={
             <PrivateRoute
               component={<AdminTemplate component={DashboardPage} />}
+            />
+          }
+        />
+        <Route
+          path="/dashboard/players"
+          element={
+            <PrivateRoute
+              component={<AdminTemplate component={PlayerAdminPage} />}
+            />
+          }
+        />
+        <Route
+          path="/dashboard/trophies"
+          element={
+            <PrivateRoute
+              component={<AdminTemplate component={TrophiesAdminPage} />}
             />
           }
         />

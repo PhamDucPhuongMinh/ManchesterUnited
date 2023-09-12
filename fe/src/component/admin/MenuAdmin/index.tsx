@@ -2,14 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 
-const MenuAdmin: React.FC = () => {
+interface Props {
+  onCloseMenu?: () => void;
+}
+
+const MenuAdmin: React.FC<Props> = ({ onCloseMenu }) => {
   return (
-    <div className="menu-admin py-4 bg-white border-end">
+    <div className="menu-admin py-4 bg-white">
       <div className="text-center mb-4">
         <img src="/assets/images/Logo.png" alt="" width={70} />
       </div>
       <ul className="menu-admin__list">
-        <li className="menu-admin__item">
+        <li className="menu-admin__item" onClick={onCloseMenu}>
           <Link
             to="/dashboard"
             className="text-dark text-decoration-none d-flex align-items-center py-3 px-4 mx-4"
@@ -23,7 +27,7 @@ const MenuAdmin: React.FC = () => {
             Dashboard
           </Link>
         </li>
-        <li className="menu-admin__item">
+        <li className="menu-admin__item" onClick={onCloseMenu}>
           <Link
             to="/dashboard/players"
             className="text-dark text-decoration-none d-flex align-items-center py-3 px-4 mx-4"
@@ -37,7 +41,7 @@ const MenuAdmin: React.FC = () => {
             Players
           </Link>
         </li>
-        <li className="menu-admin__item">
+        <li className="menu-admin__item" onClick={onCloseMenu}>
           <Link
             to="/dashboard/trophies"
             className="text-dark text-decoration-none d-flex align-items-center py-3 px-4 mx-4"

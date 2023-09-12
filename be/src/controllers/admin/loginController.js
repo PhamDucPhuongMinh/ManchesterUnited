@@ -5,14 +5,14 @@ const userInfoController = async (req, res) => {
   if (!username || !password) {
     res.status(200).json({
       result: false,
-      msg: "Bạn chưa nhập dữ liệu hoặc dữ liệu không đúng.",
+      msg: "You have not entered data or the data is incorrect.",
     });
   }
   if (username === "admin" && password === "admin") {
     var token = jwt.sign({ username: "admin" }, process.env.PRIVATE_KEY);
     res.status(200).json({
       result: true,
-      msg: "Đăng nhập thành công.",
+      msg: "Logged in successfully.",
       data: {
         token,
       },
@@ -20,7 +20,7 @@ const userInfoController = async (req, res) => {
   } else {
     res.status(200).json({
       result: false,
-      msg: "Tên đăng nhập hoặc mật khẩu không đúng.",
+      msg: "Username or password is incorrect.",
     });
   }
 };

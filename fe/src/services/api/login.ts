@@ -1,19 +1,7 @@
-import apiUrl from "..";
+import axiosInstance from "..";
 
-const loginAPI = async (data: { username: string; password: string }) => {
-  try {
-    const api = await fetch(`${apiUrl}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({ ...data }),
-    });
-    return api.json();
-  } catch (error) {
-    console.log(error);
-    return { result: false };
-  }
+const loginAPI = (data: { username: string; password: string }) => {
+  return axiosInstance.post("/login", data);
 };
 
 export default loginAPI;

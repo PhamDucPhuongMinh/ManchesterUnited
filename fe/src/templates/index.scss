@@ -1,0 +1,9 @@
+.admin-template {
+  min-height: 100vh;
+  @media (max-width: 992px) {
+    min-height: unset;
+    &__content {
+      min-height: 100vh;
+    }
+  }
+}

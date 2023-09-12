@@ -5,7 +5,7 @@ const checkTokenMiddleware = async (req, res, next) => {
   if (!token) {
     res.status(403).json({
       result: false,
-      msg: "Bạn không có quyền thực hiện hành động này.",
+      msg: "You do not have permission to perform this action.",
     });
   } else {
     try {
@@ -14,7 +14,7 @@ const checkTokenMiddleware = async (req, res, next) => {
     } catch (err) {
       res.status(403).json({
         result: false,
-        msg: "Bạn không có quyền thực hiện hành động này.",
+        msg: "You do not have permission to perform this action.",
       });
     }
   }

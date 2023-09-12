@@ -1,3 +1,4 @@
-import { tokenLocalStorage } from "./contants";
+import { tokenLocalStorage, regexImageLink } from "./contants";
+import convertUnixTimeToDate from "./functions/convertUnixTimeToDate";
 
-export { tokenLocalStorage };
+export { tokenLocalStorage, regexImageLink, convertUnixTimeToDate };
